@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="LoginN.css" />
+    <link rel="stylesheet" href="style.css" />
     <script
       src="https://kit.fontawesome.com/51858e06f0.js"
       crossorigin="anonymous"
@@ -36,10 +36,10 @@
         <div class="main-wrapper">
           <div class="login-box">
             <img id="myAnimation" src="src/logo.png" alt="Логотип Годовикова" />
-            <form action="" class="">
+            <form action = "login.php" method ="post">
               <div class="form__text"><h1>Авторизация</h1></div>
-              <input type="text" placeholder="Логин" />
-              <input type="password" placeholder="Пароль" />
+              <input type="text" placeholder="Логин" name="username" autofocus />
+              <input type="password" placeholder="Пароль" name="password" />
               <button type="submit">Вход</button>
               <a href="#">Забыли пароль?</a>
             </form>
