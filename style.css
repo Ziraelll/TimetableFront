@@ -16,7 +16,9 @@ header {
   position: sticky;
   z-index: 10;
 }
-
+h1 {
+  color: white;
+}
 .main-wrapper {
   display: flex;
   margin: auto;
@@ -74,19 +76,19 @@ header {
 }
 .login-box > img {
   width: 50%;
-  padding: 20px;
+  padding: 10px;
   background-color: rgba(163, 163, 163, 0.445);
   border-radius: 30px 0 0 30px;
   position: absolute;
   right: 6px;
-  animation: slide 3s 0s forwards ;
+  animation: slide 3s 0s forwards;
 }
 @keyframes slide {
   from {
-    transform:translateX(0);
+    transform: translateX(0);
   }
   to {
-    transform:translateX(-98%); ;
+    transform: translateX(-98%);
   }
 }
 form {
@@ -95,13 +97,12 @@ form {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 300px;
   right: 6px;
   top: -40px;
-  height: 463px;
+  height: 451px;
   background: white;
   width: 347px;
-  border-radius: 0px 30px 30px 0px;
+  border-radius: 0px 0px 30px 30px;
   box-shadow: -9px 7px 18px -5px rgb(125 125 125 / 75%);
 }
 .form__text {
@@ -185,4 +186,171 @@ input[type="password"] {
   width: 100%;
   opacity: 1;
   transition-duration: 0.5s;
+}
+.AdminExit > a {
+  text-decoration: none;
+}
+.AdminExit > a > span {
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+  margin-right: 10px;
+}
+.AdminExit > a > i {
+  color: white;
+  font-size: 30px;
+}
+.frame {
+  border: 1px dotted black;
+}
+.maim-menu {
+  display: flex;
+  justify-content: center;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+}
+.bord-button {
+  display: flex;
+  flex-wrap: wrap;
+  width: 880px;
+  margin: auto;
+}
+.bord-button_t{
+  justify-content: center;
+}
+.bord-button-link {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 0 5px;
+  text-decoration: none;
+  font-size: 12px;
+  margin: 20px 10px;
+}
+.bord-button-link > i {
+  margin-left: 15px;
+  margin-right: 5px;
+  font-size: 30px;
+  width: 60px;
+}
+.bord-button-link > div {
+  width: 100%;
+  font-size: 16px;
+}
+.maim-menu > .frame > ul {
+  display: flex;
+  justify-content: center;
+}
+.maim-menu > .frame > ul > li {
+  list-style-type: none;
+  margin: 10px;
+}
+.maim-menu > .frame > ul > li > a {
+  text-decoration: none;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: black;
+  display: flex;
+}
+
+/* iphone 12 mini */
+@media screen and (min-width: 359px) and (max-width: 768px) {
+  header {
+    height: 400px;
+    width: 1200px;
+  }
+  .main-wrapper {
+    width: 1200px;
+    flex-direction: column;
+  }
+  .header__text {
+    font-size: 42px;
+    margin: 40px 0 0 0;
+    padding: 40px 0 5px 0;
+  }
+  .social-icon {
+    margin: 0px 0px 70px 0px;
+  }
+  .social-icon > a > i {
+    font-size: 120px;
+  }
+  .social-icon > a {
+    margin: 0 20px;
+  }
+  .social-icon > a > i:hover {
+    transform: none;
+    margin: 0px;
+    color: rgba(229, 162, 161, 0.71);
+  }
+  .form {
+    position: absolute;
+    top: 1143px;
+    left: 330px;
+    margin: auto;
+  }
+
+  .login-box > img {
+    width: 100%;
+    padding: 10px;
+    position: absolute;
+    right: 100px;
+    border-radius: 30px 30px 0 0;
+    animation: slideY 3s 0s forwards;
+  }
+  @keyframes slideY {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-100%);
+    }
+  }
+  form {
+    width: 900px;
+    top: -12px;
+    height: 780px;
+    border-radius: 126px 126px 30px 30px;
+  }
+  form > .form__text {
+    font-size: 40px;
+  }
+  .login-box input[type="text"],
+  input[type="password"] {
+    display: block;
+    height: calc(3.25rem + 4px);
+    margin: 0 0 50px 0;
+    padding: 1.375rem 0.75rem;
+    font-size: 3rem;
+    border-bottom: 2px solid black;
+    top: 11rem;
+  }
+  ::-webkit-input-placeholder {
+    color: #708090;
+    text-transform: uppercase;
+  }
+
+  .login-box button[type="submit"] {
+    position: relative;
+    bottom: calc(-13.5rem - 2px);
+    width: 45%;
+    height: 14%;
+    font-size: 60px;
+    transition-duration: 0.3s;
+  }
+  .login-box > form > a {
+    text-decoration: none;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 15px;
+    color: #000000;
+    transition-duration: 0.4s;
+    font-size: 40px;
+  }
+  .login-box > form > a::after {
+    top: 45px;
+  }
 }
