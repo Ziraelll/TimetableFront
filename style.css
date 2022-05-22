@@ -91,7 +91,7 @@ h1 {
     transform: translateX(-98%);
   }
 }
-form {
+.login__form {
   position: absolute;
   margin: 10px auto;
   display: flex;
@@ -102,12 +102,13 @@ form {
   height: 451px;
   background: white;
   width: 347px;
-  border-radius: 0px 0px 30px 30px;
+  border-radius: 0px 30px 30px 0px;
   box-shadow: -9px 7px 18px -5px rgb(125 125 125 / 75%);
 }
-.form__text {
+.login__form > .form__text {
   position: relative;
   top: 5rem;
+  font-size: 24px;
   font-weight: 600;
   text-align: center;
   margin: 20px 0 20px;
@@ -216,7 +217,7 @@ input[type="password"] {
   width: 880px;
   margin: auto;
 }
-.bord-button_t{
+.bord-button_t {
   justify-content: center;
 }
 .bord-button-link {
@@ -255,6 +256,27 @@ input[type="password"] {
   font-weight: 600;
   color: black;
   display: flex;
+}
+.Exit > a {
+  text-decoration: none;
+}
+.Exit > a > span {
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+  margin-right: 10px;
+}
+.Exit > a > i {
+  color: white;
+  font-size: 30px;
+}
+
+.bord-button_m {
+  width: 440px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
 }
 
 /* iphone 12 mini */
@@ -315,7 +337,7 @@ input[type="password"] {
     height: 780px;
     border-radius: 126px 126px 30px 30px;
   }
-  form > .form__text {
+  .login__form > .form__text {
     font-size: 40px;
   }
   .login-box input[type="text"],
