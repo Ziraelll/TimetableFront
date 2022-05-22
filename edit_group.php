@@ -3,6 +3,8 @@ $title = 'Редактирование групп';
 require_once 'header.html';
 require 'check_logined.php';
 require 'db_connect.php';
+echo'<script type="text/javascript" src="js/editGroup.js"></script>';
+
 $db = connect();
 
 function get_department($con)
@@ -55,7 +57,7 @@ $department = get_department($db);
 
 
 echo '<form class = "edit_form_g"  method="post">';
-echo '<div class = "edit_block"><input  type="text" name="group_name" placeholder="Предмет" autofocus /><select class = "edit_select" name="department_id" id="department_id">';
+echo '<div class = "edit_block"><input  type="text" name="group_name" placeholder="Группа" autofocus /><select class = "edit_select" name="department_id" id="department_id">';
 
 echo '<option value="none" hidden="">Выберите подразделение</option>';
 if (mysqli_num_rows($department) > 0)
@@ -75,35 +77,31 @@ echo '</div></form>';
 
 
 echo '<div class="outer outer_40"><div class="inner">';
-echo '<button type="submit" value="Изменить">Измеменить</button>';
+echo '<button type="submit" onClick = "postTable()"  value="Изменить">Измеменить</button>';
+
 if (mysqli_num_rows($group) > 0) {
 	$i = 1;
 	foreach ($group as $name) {
+        echo '<tr><td><input  type="text" name="group_name" placeholder="Группа" value="' . $name['group_name'] . '" /></td>';
+        echo '<td>';
+        echo '<select name="department_id">';
+        if ($name['department'] == '0') echo '<option value="none" hidden="">Выберите подразделение</option>';
+        if (mysqli_num_rows($department) > 0)
+            foreach ($department as $dep) {
+                echo '<option value="' . $dep['department_id'] . '"';
+                if ($name['department'] == $dep['department_id']) {
+                    echo ' selected >';
+                } else {
+                    echo '>';
+                }
 
-		echo'<table><tr><td><input  type="text" name="group_name" placeholder="Группа" value="' . $name['group_name'] . '" /></td>';
-		echo'<td>';
-		//echo '<p><fordm class ="show_edit" method="post">';
-		// echo '';
-		echo '<select name="department_id" id="department_id">';
-		if ($name['department'] == '0') echo '<option value="none" hidden="">Выберите подразделение</option>';
-		if (mysqli_num_rows($department) > 0)
-			foreach ($department as $dep) {
-				echo '<option value="' . $dep['department_id'] . '"';
-				if ($name['department'] == $dep['department_id']) {
-					echo ' selected >';
-				} else {
-					echo '>';
-				}
+                echo $dep['department_name'] . '</option>';
+            }
+        echo '</select>';
+        echo '</td></tr>';
 
-				echo $dep['department_name'] . '</option>';
-			}
-		echo '</select>';
-		echo '</td></tr></table>';
-
-		
-		echo '<input type="hidden" value="' . $name['id_group'] . '" name="id_group" />';
-		echo '<input type="hidden" value="alter" name="alter_group"/>';
-		echo '</fordm>';
+        echo '<input type="hidden" value="' . $name['id_group'] . '" name="id_group" />';
+        echo '<input type="hidden" value="alter" name="alter_group"/>';
 		$i++;
 	}
 }

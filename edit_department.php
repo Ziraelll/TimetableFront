@@ -3,9 +3,9 @@ $title = 'Редактирование подразделения';
 
 require 'check_logined.php';
 require_once 'header.html';
-	require 'db_connect.php';
-	$db = connect();
-        
+require 'db_connect.php';
+$db = connect();
+echo'<script type="text/javascript" src="js/editDepartment.js"></script>';
 
 	function get_department($con)
 	{
@@ -54,23 +54,22 @@ require_once 'header.html';
 	echo '</div></form>';
        
 
-        echo '<div class="outer outer_30"><div>';
-	if (mysqli_num_rows($dep) > 0) {
-		$i=1;
-		foreach($dep as $department)
-		{		
-					echo '<p><form class= "show_edit" method="post">';
-	
-		echo '<input type="text" name="department_name"  placeholder="Подразделение" value="'. $department['department_name'] .'" />';
-		
-		echo '</select>';
+    echo '<div class="outer outer_30"><div>';
+    echo '<button type="submit" onClick = "postTable()" value="Изменить">Изменить</button>';
+if (mysqli_num_rows($dep) > 0) {
+    $i=1;
+    echo '<table id="department">';
+    foreach($dep as $department)
+    {
 
-		echo '<button type="submit" value="Изменить">Изменить</button>';
-		echo '<input type="hidden" value="'. $department['department_id'] .'" name="department_id" />';
-		echo '<input type="hidden" value="alter" name="alter_department" />';
-		echo '</form></p>';
-		$i++;
-		}
-	}
-        echo '</div></div>';
-	echo '</body></html>';
+ echo '<tr><td><input type="text" name="department_name"  placeholder="Подразделение" value="'. $department['department_name'] .'" /></td></tr>';
+
+    echo '<input type="hidden" value="'. $department['department_id'] .'" name="department_id" />';
+    echo '<input type="hidden" value="alter" name="alter_department" />';
+
+    $i++;
+    }
+    echo '</table>';
+}
+
+echo '</body></html>';

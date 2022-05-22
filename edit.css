@@ -1,107 +1,130 @@
 .edit_form {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background: white;
-  width: 30%;
-  height: 100%;
-  border-radius: 0px 0px 30px 30px;
-  box-shadow: -9px 7px 18px -5px rgb(125 125 125 / 75%);
-  right: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: white;
+    width: 30%;
+    height: 100%;
+    border-radius: 0 0 30px 30px;
+    box-shadow: -9px 7px 18px -5px rgb(125 125 125 / 75%);
+    right: 0;
 }
+
 .edit_form_g {
-  margin: auto;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  height: 100px;
-  background: white;
-  width: 40%;
-  border-radius: 0px 0px 30px 30px;
-  box-shadow: -1px 15px 18px -5px rgb(125 125 125 / 75%);
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 100px;
+    background: white;
+    width: 40%;
+    border-radius: 0 0 30px 30px;
+    box-shadow: -1px 15px 18px -5px rgb(125 125 125 / 75%);
 }
+
 .edit_form_30 {
-  width: 30%;
+    width: 30%;
 }
+
 .edit_form_50 {
-  width: 50%;
+    width: 50%;
 }
+
 .edit_form_60 {
-  width: 60%;
+    width: 60%;
 }
+
 .edit_block {
-  margin: auto;
+    margin: auto;
 }
+
 .edit_form_g input[type="text"],
 .edit_select,
 .edit_button {
-  height: 35px;
+    height: 35px;
 }
+
 .show_edit input[type="checkbox"] {
-  margin-left: 10px;
+    margin-left: 10px;
 }
+
 button {
-  margin-left: 20px;
-  width: 100px;
-  border-radius: 40px 10px 40px 10px;
-  transition-duration: 0.3s;
+    margin-left: 20px;
+    width: 100px;
+    border-radius: 40px 10px 40px 10px;
+    transition-duration: 0.3s;
 }
+
 button:hover {
-  transform: scale3d(1.2, 1.2, 1);
-  border-radius: 10px 40px 10px 40px;
-  transition-duration: 0.3s;
+    transform: scale3d(1.2, 1.2, 1);
+    border-radius: 10px 40px 10px 40px;
+    transition-duration: 0.3s;
 }
+
 .outer {
-  position: relative;
-  margin: 40px auto 0px;
-  top: 25%;
-  background: snow;
-  display: flex;
-  justify-content: center;
+    position: relative;
+    margin: 40px auto 0;
+    top: 25%;
+    background: snow;
+    display: flex;
+    justify-content: center;
 }
-.outer_r{
-  position: absolute;
-  top: 18%;
+
+.outer_r {
+    position: absolute;
+    top: 18%;
 }
-.wrap_form{
-  display: flex;
-  flex-wrap: wrap;
+
+.wrap_form {
+    display: flex;
+    flex-wrap: wrap;
 }
+
 .out_r {
-  width: 70%;
-  border: 1px solid;
-  margin: 0;
+    width: 70%;
+    border: 1px solid;
+    margin: 0;
 }
+
 .outer_20 {
-  width: 20%;
+    width: 20%;
 }
+
 .outer_30 {
-  width: 30%;
+    width: 30%;
 }
+
 .outer_40 {
-  width: 40%;
+    width: 40%;
 }
+
 .outer_50 {
-  width: 50%;
+    width: 50%;
 }
+
 .outer_60 {
-  width: 60%;
+    width: 60%;
 }
+
 .outer_70 {
-  width: 70%;
+    width: 70%;
 }
+
 .outer_80 {
-  width: 80%;
+    width: 80%;
 }
+
 .inner {
-  margin: 10px;
+    margin: 10px;
 }
+
 .show_edit {
-  margin: 10px;
+    margin: 10px;
 }
+
 .show_edit input[type="text"],
 select,
 button {
-  height: 40px;
+    height: 40px;
 }

@@ -2,9 +2,9 @@
 require 'check_logined.php';
 $title = 'Редактирование кабинетов';
 require_once 'header.html';
-
-	require 'db_connect.php';
-	$db = connect();
+echo'<script type="text/javascript" src="js/editClassroom.js"></script>';
+require 'db_connect.php';
+$db = connect();
 
 	function get_housings($con)
 	{
@@ -83,49 +83,49 @@ require_once 'header.html';
 
 	echo '</select>';
 
-	echo '<input type="hidden" value="add" name="add_classroom" />';
-	echo '<button type="submit" value="Добавить">Добавить</button>';
-	echo '</div></form>';
-		
-        
-        
-        echo '<div class="outer outer_30"><div class="inner">';
+echo '<input type="hidden" value="add" name="add_classroom" />';
+echo '<button type="submit" value="Добавить">Добавить</button>';
+echo '</div></form>';
 
-	if (mysqli_num_rows($result) > 0) {
-		$i=1;
-		foreach($result as $name)
-		{		
-					echo '<p><form class= "show_edit" method="post">';
-		echo '<input type="text" name="classroom" placeholder="Кабинет" value="'. $name['classroom'] .'" />';
-		// echo '<input type="text" name="id_housing" placeholder="Корпус" value="'. $name['id_housing'] .'" />';
-                
-                
-                echo '<select name="id_housing" id="id_housing">';
-        if($name['id_housing']=='') echo '<option value="none" hidden="">Выберите корпус </option>';
-		if (mysqli_num_rows($housings) > 0)
-			foreach($housings as $hoz)
-			{	
-				echo '<option value="'.$hoz['id_housing'] .'"';
-				if ($name['id_housing']==$hoz['id_housing']) {
-					echo ' selected >';
-				} else {
-					echo '>';
-				}
-				
-				echo $hoz['short_housing'] .'</option>';
-                                
-              	                
-			}
-                echo '</select>';  
-                
-                // echo '&nbsp;&nbsp;'.$name['short_housing']." ".$name['long_housing']." ".$name['address'].'&nbsp;';
-		echo '<button type="submit" value="Изменить">Изменить</button>';
-		echo '<input type="hidden" value="'. $name['id_classroom'] .'" name="id_classroom" />';
-		echo '<input type="hidden" value="alter" name="alter_classroom" />';
-		echo '</form></p>';
-		$i++;
-		}
-	}
-        echo '</div></div>';
-	echo '</body></html>';
-	?>
+
+
+    echo '<div class="outer outer_30"><div class="inner">';
+echo '<button type="submit" onClick = "postTable()" value="Изменить">Изменить</button>';
+if (mysqli_num_rows($result) > 0) {
+    $i=1;
+    echo '<table id="classroom">';
+    foreach($result as $name)
+    {
+echo '<tr><td><input type="text" name="classroom" placeholder="Кабинет" value="'. $name['classroom'] .'" /></td>';
+echo '<td>';
+echo '<select name="id_housing" id="id_housing">';
+    if($name['id_housing']=='') echo '<option value="none" hidden="">Выберите корпус </option>';
+    if (mysqli_num_rows($housings) > 0)
+        foreach($housings as $hoz)
+        {
+            echo '<option value="'.$hoz['id_housing'] .'"';
+            if ($name['id_housing']==$hoz['id_housing']) {
+                echo ' selected >';
+            } else {
+                echo '>';
+            }
+
+            echo $hoz['short_housing'] .'</option>';
+
+
+        }
+            echo '</select>';
+            echo '</td></tr>';
+
+            // echo '&nbsp;&nbsp;'.$name['short_housing']." ".$name['long_housing']." ".$name['address'].'&nbsp;';
+
+    echo '<input type="hidden" value="'. $name['id_classroom'] .'" name="id_classroom" />';
+    echo '<input type="hidden" value="alter" name="alter_classroom" />';
+    echo '</form></p>';
+    $i++;
+    }
+    echo '</table>';
+}
+
+echo '</body></html>';
+?>

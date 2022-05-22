@@ -2,10 +2,9 @@
 require 'check_logined.php';
 $title = 'Редактирование дожностей';
 require_once 'header.html';
-
 require 'db_connect.php';
 $db = connect();
-
+echo'<script type="text/javascript" src="js/editPosition.js"></script>';
 
 function get_positions($con)
 {
@@ -50,20 +49,18 @@ echo '<button type="submit" value="Добавить">Добавить</button>';
 echo '</div></form>';
 
 echo '<div class="outer outer_30 "><div class="inner">';
+echo '<button type="submit" onClick = "postTable()" value="Изменить">Изменить</button>';
 if (mysqli_num_rows($pos) > 0) {
 	$i = 1;
+	echo '<table id="position">';
 	foreach ($pos as $position) {
-		echo '<p><form class=" show_edit" method="post">';
-		echo '<input type="text" name="position" placeholder="Должность" value="' . $position['position'] . '" />';
+	    echo '<tr><td><input type="text" name="position" placeholder="Должность" value="' . $position['position'] . '" /></td></tr>';
 
-		echo '</select>';
 
-		echo '<button type="submit" value="Изменить">Изменить</button>';
 		echo '<input type="hidden" value="' . $position['id_position'] . '" name="id_position" />';
 		echo '<input type="hidden" value="alter" name="alter_position" />';
-		echo '</form></p>';
 		$i++;
 	}
+	echo '</table>';
 }
-echo '</div></div>';
 echo '</body></html>';

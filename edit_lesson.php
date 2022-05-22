@@ -2,16 +2,15 @@
 require 'check_logined.php';
 $title = 'Редактирование предметов  ';
 require_once 'header.html';
+require 'db_connect.php';
 
-	require 'db_connect.php';
-	$db = connect();
-
-
-	function get_lessons($con)
-	{
-		 $result=mysqli_query($con,'SELECT * FROM lessons');
-		 return $result;
-	}
+echo '<script type="text/javascript" src="js/editLesson.js"></script>';
+$db = connect();
+function get_lessons($con)
+{
+     $result=mysqli_query($con,'SELECT * FROM lessons');
+     return $result;
+}
 
 	 function add_lesson($subject,$con)
 	{
@@ -46,40 +45,33 @@ require_once 'header.html';
 
  	$lesson=get_lessons($db);
 
-	
-	echo '<form class = "edit_form_g edit_form_30" method="post">';
-	echo '<div class = "edit_block"><input type="text" name="subject"  placeholder="Предмет" autofocus />';
 
-	
+echo '<form class = "edit_form_g edit_form_30" method="post">';
+echo '<div class = "edit_block"><input type="text" name="subject"  placeholder="Предмет" autofocus />';
 
-	echo '<input type="hidden" value="add" name="add_lesson" />';
-	echo '<button type="submit" value="Добавить">Добавить</button>';
-    
-	echo '</div></form>';
-        
-        
-        
-        	
-        echo '<div class="outer outer_30"><div class="inner">';
-	if (mysqli_num_rows($lesson) > 0) {
-		$i=1;
-		foreach($lesson as $name)
-		{		
-					echo '<p><form class = "show_edit " method="post">';
-	
-		echo '<input type="text" name="subject"  placeholder="Предмет" value="'. $name['subject'] .'" />';
-                
-                
-                
-                
-                
-		echo '<button type="submit" value="Изменить">Изменить</button>';
-		echo '<input type="hidden" value="'. $name['id_subject'] .'" name="id_subject" />';
-		echo '<input type="hidden" value="alter" name="alter_lesson" />';
-		echo '</form></p>';
-		$i++;
-		}
-	}
-        echo '</div></div>';
-	echo '</body></html>';
+
+
+echo '<input type="hidden" value="add" name="add_lesson" />';
+echo '<button type="submit" value="Добавить">Добавить</button>';
+
+echo '</div></form>';
+
+
+
+
+    echo '<div class="outer outer_30"><div class="inner">';
+    echo '<button type="submit" onClick = "postTable()" value="Изменить">Изменить</button>';
+if (mysqli_num_rows($lesson) > 0) {
+    $i=1;
+    echo '<table id="lessons">';
+    foreach($lesson as $name)
+    {
+    echo '<tr><td><input type="text" name="subject"  placeholder="Предмет" value="'. $name['subject'] .'" /></td></tr>';
+    echo '<input type="hidden" value="'. $name['id_subject'] .'" name="id_subject" />';
+    echo '<input type="hidden" value="alter" name="alter_lesson" />';
+    $i++;
+    }
+    echo '</table>';
+}
+echo '</body></html>';
 ?>

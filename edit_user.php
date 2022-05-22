@@ -4,7 +4,7 @@ $title = 'Редактирование преподавателей';
 require_once 'header.html';
 require 'db_connect.php';
 $db = connect();
-
+echo'<script type="text/javascript" src="js/editUser.js"></script>';
 
 function get_positions($con)
 {
@@ -44,7 +44,7 @@ if(isset($_POST['add_name']))
     $position=trim($_POST['id_position']);
     add_name($firstname,$middlename,$lastname,$position,$db);
     
-    header('Location: edit_users.php');
+    header('Location: edit_user.php');
     exit();
 }
 else if (isset($_POST['alter_name']))
@@ -88,16 +88,15 @@ echo '<button type="submit" value="Добавить">Добавить</button>';
 echo '</div></form>';
    
     echo '<div class="outer outer_70"><div class="inner">';
+     echo '<button type="submit" onClick = "postTable()" value="Изменить">Изменить</button>';
 if (mysqli_num_rows($result) > 0) {
     $i=1;
     foreach($result as $name)
-    {		
-    echo '<p><form class = "show_edit" method="post">';
-    echo '<input type="text" name="lname" placeholder="Фамилия" value="'. $name['lname'] .'" />';
-    echo '<input type="text" name="fname" placeholder="Имя" value="'.  $name['fname'] .'" />';
-    echo '<input type="text" name="surname" placeholder="Отчество" value="'. $name['surname'] .'" />';
-    // echo '<input type="text" name="id_position" placeholder="Должность" value="'. $name['id_position'] .'" />';
-
+    {
+    echo '<tr><td><input type="text" name="lname" placeholder="Фамилия" value="'. $name['lname'] .'" /></td>';
+    echo '<td><input type="text" name="fname" placeholder="Имя" value="'.  $name['fname'] .'" /></td>';
+    echo '<td><input type="text" name="surname" placeholder="Отчество" value="'. $name['surname'] .'" /></td>';
+    echo '<td>';
     echo '<select name="id_position" id="id_position">';
     if($name['id_position']=='') echo '<option value="none" hidden="">Выберите должность</option>';
     if (mysqli_num_rows($positions) > 0)
@@ -114,16 +113,20 @@ if (mysqli_num_rows($result) > 0) {
         }	
 
     echo '</select>';
-            
+    echo '</td>';
+    echo '<td>';
     if ($name['banned']==1) {
         echo '<input type="checkbox" checked="checked" name="banned" />Забанен&nbsp;&nbsp;&nbsp;&nbsp;';
     } else echo '<input type="checkbox" name="banned" />Не забанен&nbsp;&nbsp;&nbsp;&nbsp;';
 
-    echo '<button type="submit" value="Изменить">Изменить</button>';
+    echo '</td>';
+    echo '</tr>';
     echo '<input type="hidden" value="'. $name['id_user'] .'" name="id_user" />';
     echo '<input type="hidden" value="alter" name="alter_name" />';
     echo '</form></p>';
     $i++;
     }
+
+    echo '</table>';
 }
 echo '</body></html>';
