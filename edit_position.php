@@ -49,7 +49,7 @@ echo '<button type="submit" value="Добавить">Добавить</button>';
 echo '</div></form>';
 
 echo '<div class="outer outer_30 "><div class="inner">';
-echo '<button type="submit" onClick = "postTable()" value="Изменить">Изменить</button>';
+echo '<button type="submit" onClick = "postTable()" value="Изменить">Сохранить</button>';
 if (mysqli_num_rows($pos) > 0) {
 	$i = 1;
 	echo '<table id="position">';

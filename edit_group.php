@@ -77,7 +77,7 @@ echo '</div></form>';
 
 
 echo '<div class="outer outer_40"><div class="inner">';
-echo '<button type="submit" onClick = "postTable()"  value="Изменить">Измеменить</button>';
+echo '<button type="submit" onClick = "postTable()"  value="Изменить">Сохранить</button>';
 
 if (mysqli_num_rows($group) > 0) {
 	$i = 1;

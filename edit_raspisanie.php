@@ -445,12 +445,11 @@ echo '</td></tr>';
 
 
         echo '<tr><td></td><td></td><td></td>';
-        echo '<td><button type="submit" onclick="changePair('. $name["id"].')" value="Изменить">Изменить</button></td>';
+        echo '<td><button type="submit" onclick="changePair('. $name["id"].')" value="Изменить">Сохранить</button></td>';
         echo '<td>';
         echo '<button type="submit" onclick="deletePair('. $name["id"].')" value="Удалить">Удалить</button>';
         echo '</form>';
         echo '</td></tr>';
-
         $i++;
         echo '</table>';
         }
