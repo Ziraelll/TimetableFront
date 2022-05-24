@@ -2,7 +2,7 @@
 require 'check_logined.php';
 $title = 'Редактирование Расписания';
 require_once 'header.html';
-
+echo'<script type="text/javascript" src="js/editRapisanie.js"></script>';
 
 require 'db_connect.php';
 $db = connect();

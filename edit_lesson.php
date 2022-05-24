@@ -58,9 +58,9 @@ echo '</div></form>';
 
 
 
+    echo '<button class = "fix_but" type="submit" onClick = "postTable()" value="Изменить">Сохранить</button>';
 
     echo '<div class="outer outer_30"><div class="inner">';
-    echo '<button type="submit" onClick = "postTable()" value="Изменить">Сохранить</button>';
 if (mysqli_num_rows($lesson) > 0) {
     $i=1;
     echo '<table id="lessons">';

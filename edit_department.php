@@ -55,7 +55,6 @@ echo'<script type="text/javascript" src="js/editDepartment.js"></script>';
        
 
     echo '<div class="outer outer_30"><div>';
-    echo '<button type="submit" onClick = "postTable()" value="Изменить">Сохранить</button>';
 if (mysqli_num_rows($dep) > 0) {
     $i=1;
     echo '<table id="department">';

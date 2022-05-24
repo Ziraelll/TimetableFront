@@ -86,9 +86,9 @@ echo '</select>';
 echo '<input type="hidden" value="add" name="add_name" />';
 echo '<button type="submit" value="Добавить">Добавить</button>';
 echo '</div></form>';
-   
-    echo '<div class="outer outer_70"><div class="inner">';
-     echo '<button type="submit" onClick = "postTable()" value="Изменить">Сохранить</button>';
+   echo '<button class = "fix_but" type="submit" onClick = "postTable()" value="Изменить">Сохранить</button>';
+    echo '<div class="outer outer_60"><div class="inner">';
+
 if (mysqli_num_rows($result) > 0) {
     $i=1;
     foreach($result as $name)

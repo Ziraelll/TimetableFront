@@ -12,7 +12,11 @@
 }
 
 .edit_form_g {
+  position: absolute;
   margin: auto;
+  top: 5%;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -21,6 +25,10 @@
   width: 40%;
   border-radius: 0 0 30px 30px;
   box-shadow: -1px 15px 18px -5px rgb(125 125 125 / 75%);
+}
+
+.edit_form_g > .edit_block input[type] {
+  height: 40px;
 }
 
 .edit_form_30 {
@@ -39,10 +47,19 @@
   margin: auto;
 }
 
-.edit_form_g input[type="text"],
-.edit_select,
-.edit_button {
-  height: 35px;
+#groups input[type="text"],
+#classroom input[type="text"],
+#department input[type="text"],
+#housing input[type="text"],
+#lessons input[type="text"],
+#position input[type="text"],
+#users input[type="text"],
+.raspisanie input[type="text"],
+.edit_select {
+  height: 40px;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
 }
 
 .show_edit input[type="checkbox"] {
@@ -63,13 +80,16 @@ button:hover {
 }
 
 .outer {
-  position: relative;
-  margin: 40px auto 0;
+  position: absolute;
+  margin: 20px auto 0;
   top: 25%;
   background: snow;
   display: flex;
   justify-content: center;
   border-radius: 30px 30px 30px 30px;
+  border: 1px dashed black;
+  left: 0;
+  right: 0;
 }
 
 .outer_r {
@@ -128,4 +148,15 @@ button:hover {
 select,
 button {
   height: 40px;
+}
+
+.fix_but {
+  position: fixed;
+  top: 10%;
+  right: 5%;
+  height: 60px;
+  width: 150px;
+  font-size: 20px;
+  font-weight: 600;
+  z-index: 10;
 }
