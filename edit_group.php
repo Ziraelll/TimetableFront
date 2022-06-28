@@ -57,8 +57,8 @@ $department = get_department($db);
 
 
 echo '<form class = "edit_form_g"  method="post">';
-echo '<div class = "edit_block"><input  type="text" name="group_name" placeholder="Группа" autofocus /><select class = "edit_select" name="department_id" id="department_id">';
-
+echo '<div class = "edit_block">';
+echo'<input  type="text" name="group_name" placeholder="Группа" autofocus /><select class = "edit_select" name="department_id" id="department_id">';
 echo '<option value="none" hidden="">Выберите подразделение</option>';
 if (mysqli_num_rows($department) > 0)
 	foreach ($department as $dep) {
@@ -68,7 +68,6 @@ if (mysqli_num_rows($department) > 0)
 		echo $dep['department_name'] . '</option>';
 	}
 echo '</select>';
-
 echo '<input type="hidden" value="add" name="add_group" />';
 echo '<button class = "edit_button" type="submit" value="Добавить" style="">Добавить </button>';
 echo '</div></form>';

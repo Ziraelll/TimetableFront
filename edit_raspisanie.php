@@ -165,11 +165,11 @@ $type=get_type_week($db);
 
 
 echo '<form class = "edit_form" method="post">';
-echo '<input type="text" name="number_pair" placeholder="№ пары" autofocus />';
-echo '<input type="date" name="date_start" placeholder="Дата начала" />';
-echo '<input type="date" name="date_end" placeholder="Дата конца" />';
+echo '<input class = "form_a" type="text" name="number_pair" placeholder="№ пары" autofocus />';
+echo '<input class = "form_a" type="date" name="date_start" placeholder="Дата начала" />';
+echo '<input  class = "form_a" type="date" name="date_end" placeholder="Дата конца" />';
 
-echo '<select class="select" name="id_subject" id="id_subject">';
+echo '<select class = "form_a" name="id_subject" id="id_subject">';
 echo '<option value="none" hidden="">Выберите предмет</option>';
 
 if (mysqli_num_rows($subject) > 0){
@@ -181,9 +181,7 @@ if (mysqli_num_rows($subject) > 0){
 }
 echo '</select>';
 
-echo '<BR />';
-
-echo '<select name="id_housing" id="id_housing">';
+echo '<select class = "form_a" name="id_housing" id="id_housing">';
 echo '<option value="none" hidden="">Выберите корпус</option>';
 if (mysqli_num_rows($housing) > 0){
         $hoz_arr["hoz"] = array();
@@ -194,7 +192,7 @@ if (mysqli_num_rows($housing) > 0){
 }
 echo '</select>';
 
-echo '<select name="id_classroom" id="id_classroom">';
+echo '<select  class = "form_a" name="id_classroom" id="id_classroom">';
 echo '<option value="none" hidden="">Выберите кабинет</option>';
 if (mysqli_num_rows($classroom) > 0){
         $cls_arr["cls"] = array();
@@ -205,7 +203,7 @@ if (mysqli_num_rows($classroom) > 0){
 }
 echo '</select>';
 
-echo '<select name="id_group" id="id_group">';
+echo '<select class = "form_a" name="id_group" id="id_group">';
 echo '<option value="none" hidden="">Выберите группу</option>';
 if (mysqli_num_rows($group) > 0){
         $grp_arr["grp"] = array();
@@ -216,7 +214,7 @@ if (mysqli_num_rows($group) > 0){
 }
 echo '</select>';
 
-echo '<select name="id_user" id="id_user">';
+echo '<select class = "form_a" name="id_user" id="id_user">';
 echo '<option value="none" hidden="">Выберите основного преподавателя</option>';
 if (mysqli_num_rows($user) > 0){
         $us_arr["us"] = array();
@@ -227,7 +225,7 @@ if (mysqli_num_rows($user) > 0){
 }
 echo '</select>';
 
-echo '<select name="second_teacher" id="second_teacher">';
+echo '<select class = "form_a" name="second_teacher" id="second_teacher">';
 echo '<option value="none" hidden="">Выберите второго преподавателя</option>';
 if (mysqli_num_rows($user) > 0){
         $us_arr["us"] = array();
@@ -238,7 +236,7 @@ if (mysqli_num_rows($user) > 0){
 }
 echo '</select>';
 
-echo '<select name="id_type_week" id="id_type_week">';
+echo '<select class = "form_a" name="id_type_week" id="id_type_week">';
 echo '<option value="none" hidden="">Выберите верх/низ</option>';
 if (mysqli_num_rows($type) > 0){
         $tp_arr["tp"] = array();
@@ -249,7 +247,7 @@ if (mysqli_num_rows($type) > 0){
 }
 echo '</select>';
 
-echo '<select name="id_day" id="id_day">';
+echo '<select class = "form_a" name="id_day" id="id_day">';
 echo '<option value="none" hidden="">Выберите день недели</option>';
 if (mysqli_num_rows($week) > 0){
         $day_arr["day"] = array();
@@ -262,7 +260,7 @@ if (mysqli_num_rows($week) > 0){
 echo '</select>';
 
 echo '<input type="hidden" value="add" name="add_raspisanie" />';
-echo '<input type="submit" value="Добавить" />';
+echo'<button style="margin-top: 10px;" type="submit" value="Добавить">Добавить</button>';
 echo '</form>';
 
 echo '<div class="outer out_r"><div class="inner">';
@@ -371,7 +369,7 @@ echo '<tr><td>';
 echo '</td>';
 echo '<td>';
         echo '<select name="id_user" id="id_user">';
-        if($name['id_user']=='') echo '<option value="none" hidden="">Выберите основного преподавателя</option>';
+        if($name['id_user']=='') echo '<option value="none" hidden="">Основной преподаватель</option>';
         if (mysqli_num_rows($user) > 0)
                 foreach($user as $us)
                 {
@@ -388,7 +386,7 @@ echo '<td>';
 echo '</td>';
 echo '<td>';
         echo '<select name="second_teacher" id="second_teacher">';
-        if($name['second_teacher']=='') echo '<option value="none" hidden="">Выберите второго преподавателя</option>';
+        if($name['second_teacher']=='') echo '<option value="none" hidden="">Второй преподаватель</option>';
         if( $name['second_teacher']=='0') echo '<option value="0" selected >Нет преподавателя</option>';
         else echo '<option value="0">Нет преподавателя</option>';
         if (mysqli_num_rows($user) > 0)
