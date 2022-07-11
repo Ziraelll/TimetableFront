@@ -3,7 +3,7 @@ from fastapi.responses import FileResponse
 
 
 router = APIRouter(
-    tags=["pages"],
+    tags=["pages w/o auth"],
     responses={404: {"description": "Not found"}},
     default_response_class=FileResponse,
 )
